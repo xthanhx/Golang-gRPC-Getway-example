@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  proto_builder:
+    build:
+      context: ./
+      dockerfile: ./.docker/proto/Dockerfile
+    container_name: proto_builder
+    volumes:
+      - ./:/go/src/
+    working_dir: /go/src/
+    command: 'make build-proto'
